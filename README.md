@@ -6,7 +6,7 @@ technical language.
 
 ## Workflow
 
-1. Load and inspect the labelled sensor dataset.
+1. Download the public Kaggle dataset and inspect the labelled sensor data.
 2. Perform exploratory data analysis and electrical feature engineering.
 3. Encode and scale the features, then create stratified training and test sets.
 4. Train and evaluate an XGBoost classifier for eight fault classes (`F0`-`F7`).
@@ -18,13 +18,15 @@ technical language.
 
 ## Inputs
 
-- `modified_labels.csv`: labelled electrical sensor measurements.
+- [`pjay01/solar-panel-fault-detection`](https://www.kaggle.com/datasets/pjay01/solar-panel-fault-detection):
+  public Kaggle dataset containing `modified_labels.csv` with labelled
+  electrical sensor measurements.
 - `Three_Phase_Power_System_Fault_Reference.pdf`: reference material used by
   the RAG explanation stage.
 - User-entered voltage, current, and symmetrical-component measurements.
 
-The dataset and reference PDF are not included. Place them in the paths used by
-the notebook or update those paths for your Google Drive environment.
+KaggleHub downloads the CSV automatically. The reference PDF is not included;
+place it in the notebook working directory or update its path.
 
 ## Outputs
 
@@ -36,12 +38,12 @@ the notebook or update those paths for your Google Drive environment.
 
 ## Run the notebook
 
-The notebook was designed for Google Colab because it mounts Google Drive and
-uses notebook installation commands.
+The notebook can run in Google Colab or another Jupyter environment. It uses
+KaggleHub instead of mounting Google Drive.
 
 1. Open `HVAC_FAULT_DETECTION.ipynb` in Google Colab.
-2. Upload the CSV and reference PDF to Google Drive.
-3. Update their paths if necessary.
+2. Allow KaggleHub to download `modified_labels.csv` from the public dataset.
+3. Upload the reference PDF and update its path if necessary.
 4. Run the cells from top to bottom.
 5. Enter the Mistral API key only when prompted. Never write it directly in the
    notebook or commit it to GitHub.
